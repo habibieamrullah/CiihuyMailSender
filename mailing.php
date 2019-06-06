@@ -1,8 +1,8 @@
 <?php
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
-require("/home/ciihuyco/mailsender.ciihuy.com/vendor/phpmailer/phpmailer/class.phpmailer.php"); //change this according to your need
-require("/home/ciihuyco/mailsender.ciihuy.com/vendor/phpmailer/phpmailer/class.smtp.php"); //change this according to your need
+require("vendor/phpmailer/phpmailer/class.phpmailer.php"); //change this according to your need
+require("vendor/phpmailer/phpmailer/class.smtp.php"); //change this according to your need
 
 function sendmail($recipient, $subject, $message, $mailhost, $mailsendername, $mailusername, $mailpassword, $mailsmtpsecure, $mailport){
     $message = str_replace("\\r\\n", "", $message);
