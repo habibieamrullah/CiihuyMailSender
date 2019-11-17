@@ -1,8 +1,8 @@
 <?php
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
-require("vendor/phpmailer/phpmailer/class.phpmailer.php"); //change this according to your need
-require("vendor/phpmailer/phpmailer/class.smtp.php"); //change this according to your need
+require("vendor/phpmailer/phpmailer/class.phpmailer.php");
+require("vendor/phpmailer/phpmailer/class.smtp.php");
 
 function sendmail($recipient, $subject, $message, $mailhost, $mailsendername, $mailusername, $mailpassword, $mailsmtpsecure, $mailport){
     $message = str_replace("\\r\\n", "", $message);
@@ -17,10 +17,10 @@ function sendmail($recipient, $subject, $message, $mailhost, $mailsendername, $m
         $mail->Username = $mailusername;                 // SMTP username
         $mail->Password = $mailpassword;                           // SMTP password
         $mail->SMTPSecure = $mailsmtpsecure;                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 465;                                    // TCP port to connect to
+        $mail->Port = $mailport;                                    // TCP port to connect to
     
         $mail->setFrom($mailusername, $mailsendername);
-        $mail->AddReplyTo($mailusername,$mailsendername);
+        $mail->AddReplyTo($mailusername, $mailsendername);
         $mail->From = $mailusername;
         
     	//Recipients

@@ -1,11 +1,16 @@
 <?php
-    $mainurl = "https://mailsender.ciihuy.com/";
+    $mainurl = "https://webapps.ciihuy.com/mailsender";
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Ciihuy SMTP Bulk Mail Sender</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Ciihuy Free Mass Bulk Mail Sender</title>
+		
+		<link rel="icon" href="https://ciihuy.com/wp-content/uploads/2019/03/cropped-icon-32x32.jpg" sizes="32x32" />
+        <link rel="icon" href="https://ciihuy.com/wp-content/uploads/2019/03/cropped-icon-192x192.jpg" sizes="192x192" />
+        <link rel="apple-touch-icon-precomposed" href="https://ciihuy.com/wp-content/uploads/2019/03/cropped-icon-180x180.jpg" />
+        <meta name="msapplication-TileImage" content="https://ciihuy.com/wp-content/uploads/2019/03/cropped-icon-270x270.jpg" />
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<script
           src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -22,7 +27,7 @@
             	padding: 20px;
             }
             h1, h2, h3, h4, h5, p{
-                margin: 5px;
+                margin-bottom: 15px;
             }
             .wrapper{
                 background-color: white;
@@ -283,19 +288,45 @@
         <div id="ui" style"width:100%">
             <div id="uitext"></div>
             <div id="floatad"></div>
-            <h3 align="center">If the mailing job is stopped, just reload the page to continue.</h3>
+            <h3 align="center">If the mailing job is stopped, just reload the page to continue. Or <a href="#" onclick="resetmailer()">click here</a> to reset.</h3>
+            
         </div>
         <div id="allcontent">
-            <h1 align="center"><a href="<?php echo $mainurl ?>">Ciihuy SMTP Bulk Mail Sender</a></h1>
-
+            <h1 align="center"><a href="<?php echo $mainurl ?>">Ciihuy Free Mass Bulk Mail Sender</a></h1>
+            
+            <p>
+                Ciihuy MailSender is a web application created for sending bulk/mass emails with a single click.
+            </p>
+            
+            <p>To use this web app, you only need to fill in your email account credentials, such as email address and password, mail server address, port, etc. But don’t worry, we do not store your entered information.</p>
+            
+            <div style="text-align: center">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- WebBanner -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5796843895531667"
+                 data-ad-slot="3754890034"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            </div>
+            
+            <p>
+                Watch this video tutorial to see how to use it:
+            </p>
+            <figure><iframe width="100%" height="315" src="https://www.youtube.com/embed/-pF5X0MKuhs" allowfullscreen=""></iframe></figure>
             <h2>Mailing Credentials</h2>
             <input id="mailhost" placeholder="Mail Host e.g. mail.somewebsite.com">
             <input id="mailusername" placeholder="Email Account e.g. somename@somewebsite.com">
             <input id="mailpassword" placeholder="Password e.g. somepassword" type="password">
             <input id="mailsendername" placeholder="Sender Name e.g. Alex Banna">
-            <input id="mailsmtpsecure" value="ssl" placeholder="SSL - Default value is ssl">
-            <input id="mailport" value="465" placeholder="Port - Default value is 465">
+            <input id="mailsmtpsecure" value="TLS" placeholder="SSL - Default value is ssl">
+            <input id="mailport" value="587" placeholder="Port - Default value is 587">
             <h2>Recipients</h2>
+            <p>You can enter multiple email addresses separated by a comma.</p>
             <textarea placeholder="Email recipients separated by comma..." id="emaildata"></textarea>
             
             <h2>Title</h2>
@@ -303,15 +334,28 @@
             <h2>Content</h2>
             <textarea placeholder="Content goes here..." id="mailcontent"></textarea>
             <button onclick="sendmails()">Execute</button>
+            
+            <div id="applulad" style='display: none; height: 200px;'>ciihuy</div>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+            <script src="https://applulbayt.ciihuy.com/applulbayt/applulad.js"></script>
+            
             <div style="color: gray;">
-                <p>ATTENTION : 
-                <br>- We do not collect your input data on our server from this page. However if you have a bulk mail job, your data is stored temporarily on your web browser locally and deleted directly after your mailing job is done.
-                <br>- Some mailing servers has mailing limitation, for example you may only can send 200 emails per hour, not more. You must ask this to your service provider.
-                <br>- Some mailing servers lacks good mailing ability, just for example the email you send will go to spam folder of the recipient's inbox.
-                <br>- Use this web page at your own risk. We do not guarantee or responsible of anything happened caused by this web page.
-                </p>
+                <h2>ATTENTION : </h2>
+                <ul>
+                <li>We do not collect your input data on our server from this page. However if you have a bulk mail job, your data is stored temporarily on your web browser locally and deleted directly after your mailing job is done.</li>
+                <li>Some mailing servers has mailing limitation, for example you may only can send 200 emails per hour, not more. You must ask this to your service provider.</li>
+                <li>Some mailing servers lacks good mailing ability, just for example the email you send will go to spam folder of the recipient's inbox.</li>
+                <li>Use this web page at your own risk. We do not guarantee or responsible of anything happened caused by this web page.</li>
+                </ul>
             </div>
-            <p align="center" style="margin: 30px;">Ciihuy SMTP Bulk Mail Sender<br>Coded by <a href="https://habibie.ciihuy.com/" target="_blank">https://habibie.ciihuy.com/</a><br>If you like this tool, please consider to give a donation: <a href="https://www.paypal.me/habibieamrullah">https://www.paypal.me/habibieamrullah</a></p>
+            <p align="center" style="margin: 30px;">Ciihuy SMTP Bulk Mail Sender<br>
+            <i style="font-size: 10px;">
+                Watch this tutorial about how to use it: <a href="https://youtu.be/-pF5X0MKuhs">https://youtu.be/-pF5X0MKuhs</a><br>
+                Coded by <a href="https://habibie.ciihuy.com/" target="_blank">https://habibie.ciihuy.com/</a><br>
+                If you like this tool, please consider to give a donation: <a href="https://www.paypal.me/habibieamrullah">https://www.paypal.me/habibieamrullah</a><br>
+                The source code is available here: <a href="https://github.com/habibieamrullah/CiihuyMailSender">https://github.com/habibieamrullah/CiihuyMailSender</a>
+            </i>
+            </p>
         </div>
         <script>
             var emaildata = {
@@ -344,9 +388,7 @@
             }
             
             function sendmails(){
-                $("#ui").show();
                 
-                $("#uitext").html("Please wait...");
                 emaildata.recipients = $("#emaildata").val().split(",");
                 emaildata.title = $("#mailtitle").val();
                 emaildata.content = $("#mailcontent").val();
@@ -358,10 +400,16 @@
                 emaildata.mailport = $("#mailport").val();
                 emaildata.mailsendername = $("#mailsendername").val();
                 
-                saveData();
-                sendingmails = true;
-                commit();
-                $("#allcontent").html("");
+                if(emaildata.recipients != "" && emaildata.title != "" && emaildata.content != "" && emaildata.mailhost != "" && emaildata.mailusername != "" && emaildata.mailpassword != "" && emaildata.mailsmtpsecure != "" && emaildata.mailport != "" && emaildata.mailsendername != ""){
+                    $("#ui").show();
+                    $("#uitext").html("Please wait...");
+                    saveData();
+                    sendingmails = true;
+                    commit();
+                    $("#allcontent").html("");
+                }else{
+                    alert("Incomplete information");
+                }
             }
             function commit(){
                 if(sendingmails){
@@ -410,6 +458,11 @@
                         sendingmails = false;
                     }
                 }
+            }
+            
+            function resetmailer(){
+                localStorage.clear();
+                location.reload();
             }
         </script>
         <script src="https://www.w3counter.com/tracker.js?id=123663"></script>

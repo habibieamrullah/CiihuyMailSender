@@ -13,7 +13,7 @@ if(isset($_POST["to"])){
     $mailpassword = $_POST["mailpassword"];
     $mailsmtpsecure = $_POST["mailsmtpsecure"];
     $mailport = $_POST["mailport"];
-    $mailport = $_POST["mailsendername"];
+    $mailsendername = $_POST["mailsendername"];
     sendmail($email, $mailtitle, $mailcontent, $mailhost, $mailsendername, $mailusername, $mailpassword, $mailsmtpsecure, $mailport);
 }
 
